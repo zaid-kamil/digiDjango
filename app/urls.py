@@ -1,4 +1,4 @@
-"""webbed URL Configuration
+"""app URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.1/topics/http/urls/
@@ -13,13 +13,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path,include
-from app import urls as appurl
-from django.contrib.auth import urls as authurls
-
+from django.urls import path
+from django.views.generic import TemplateView
+from .views import SignUp,SearchView
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('',include(appurl)),
-    path('auth/',include(authurls)),
+    path('',TemplateView.as_view(template_name="index.html"),name="home"),
+    path('auth/signup/', SignUp.as_view(), name='signup'),
+    path('search',SearchView.as_view(),name="search")
+
 ]
