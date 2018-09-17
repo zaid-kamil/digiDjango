@@ -6,7 +6,7 @@
 
 {% block css %}
 <style>
-
+    
 </style>
 {% endblock css %}
 
@@ -16,11 +16,31 @@
         <div class="col-sm-12">
             <div class=" ">
                 <div class="card-body">
-                    <h1 class="text-center">Welcome</h1>
-                    <h4 class="text-center">to DIGIDJANGO </h4>
+                    
                 </div>
             </div>
         </div>
     </div>
-</div>
-{% endblock %}
+    <div class="row m-1">
+        <div class="col-sm-8">                            
+            {% for task in task_list %}
+            <div class="card m-1 ">
+                <div class="card-header bg-success">
+                    <div class="row">
+                        <div class="col-md-8 text-light"><h5>{{task.subject}}</h4></div>
+                            <div class="col-md-4">
+                                <div class="badge badge-dark float-right">
+                                    <i class="fa fa-clock"> </i>&nbsp;&nbsp;{{task.created}}
+                                </div>    
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-text">{{task.description|safe}}</div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endblock %}
