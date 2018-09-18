@@ -13,7 +13,6 @@ class TaskRequestAdmin(admin.ModelAdmin):
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
-    '''Admin View for Profile'''
     list_display = ('user','image_tag','created')
     readonly_fields = ['image_tag']
     search_fields = ('user','profile_pic')

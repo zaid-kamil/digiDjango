@@ -50,7 +50,7 @@ class Profile(models.Model):
 
     def __repr__(self):
         """Unicode representation of Profile."""
-        self.user.username
+        return self.user.username
 
     def image_tag(self):
         return mark_safe(f'<img src="{self.profile_pic.url}"  height="64" />')
